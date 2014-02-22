@@ -4,6 +4,7 @@ using System.Collections;
 public class ConstantShooting : MonoBehaviour {
 
 	float timePassed = 0;
+	float timeToShoot = 0.2f;
 
 	public GameObject Bullet;
 
@@ -14,15 +15,20 @@ public class ConstantShooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		timePassed += Time.fixedDeltaTime;
-		if (timePassed > 0.1f)
+		if (Input.GetMouseButton(0))
 		{
-			timePassed -= 0.1f;
-			var bullet1 = (GameObject)Instantiate(Bullet);
-			var bullet2 = (GameObject)Instantiate(Bullet);
-			
-			bullet1.transform.position = transform.position + new Vector3(-0.2f, 0.2f, 0);
-			bullet2.transform.position = transform.position + new Vector3(0.2f, 0.2f, 0);
+			timePassed += Time.fixedDeltaTime;
+			if (timePassed > timeToShoot)
+			{
+				timePassed -= timeToShoot;
+				var bullet1 = (GameObject)Instantiate(Bullet);
+				var bullet2 = (GameObject)Instantiate(Bullet);
+				
+				bullet1.transform.position = transform.position + new Vector3(-0.2f, 0.2f, 0);
+				bullet2.transform.position = transform.position + new Vector3(0.2f, 0.2f, 0);
+			}
 		}
+		else 
+			timePassed = timeToShoot;
 	}
 }
