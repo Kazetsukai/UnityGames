@@ -26,6 +26,9 @@ public class ConstantShooting : MonoBehaviour {
 				
 				bullet1.transform.position = transform.position + new Vector3(-0.2f, 0.2f, 0);
 				bullet2.transform.position = transform.position + new Vector3(0.2f, 0.2f, 0);
+				
+				bullet1.rigidbody2D.AddForce(Vector2.up * 700);
+				bullet2.rigidbody2D.AddForce(Vector2.up * 700);
 			}
 		}
 		else 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class PlayerControl : MonoBehaviour {
 
@@ -32,6 +33,7 @@ public class PlayerControl : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		Destroy(gameObject);
+		if (collider.GetComponents<MonoBehaviour>().Any(c => c is ICollidableEnemy))
+			Destroy(gameObject);
 	}
 }
