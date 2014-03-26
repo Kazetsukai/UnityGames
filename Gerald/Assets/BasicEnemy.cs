@@ -4,6 +4,7 @@ using System.Collections;
 public class BasicEnemy : MonoBehaviour, ICollidableEnemy, ITriggerEnter2D {
 
 	public Vector2 Acceleration;
+	public GameObject ExplosionEffect;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,8 @@ public class BasicEnemy : MonoBehaviour, ICollidableEnemy, ITriggerEnter2D {
 	{
 		if (collider.gameObject.tag.Contains("PlayerBullet"))
 		{
+			var explosion = (GameObject)Instantiate(ExplosionEffect);
+			explosion.transform.position = transform.position;
 			Destroy(collider.gameObject);
 			Destroy(gameObject);
 		}
