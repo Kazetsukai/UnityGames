@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: Player
+  m_Name: CurverEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0501673296, y: -2.750844, z: 0}
+  m_LocalPosition: {x: -1.65552294, y: 2.86790085, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,11 +39,11 @@ Rigidbody2D:
   m_GameObject: {fileID: 100000}
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_FixedAngle: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
 --- !u!60 &6000000
@@ -57,18 +57,17 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_Poly:
     m_Paths:
-    - - {x: .0700000003, y: .289999992}
-      - {x: -.0299999993, y: .289999992}
-      - {x: -.099999994, y: .25}
-      - {x: -.239999995, y: -.0799999982}
-      - {x: -.239999995, y: -.129999995}
-      - {x: -.239999995, y: -.189999998}
-      - {x: -.209999993, y: -.239999995}
-      - {x: -.099999994, y: -.280000001}
+    - - {x: -.0899999961, y: .269999981}
+      - {x: -.179999992, y: .25}
+      - {x: -.239999995, y: .170000002}
+      - {x: -.269999981, y: .0700000003}
+      - {x: -.269999981, y: -.0799999982}
+      - {x: -.159999996, y: -.229999989}
+      - {x: -.0599999987, y: -.280000001}
       - {x: .119999997, y: -.280000001}
-      - {x: .25999999, y: -.219999999}
-      - {x: .269999981, y: -.170000002}
-      - {x: .269999981, y: -.0599999987}
+      - {x: .25999999, y: -.239999995}
+      - {x: .25999999, y: .119999997}
+      - {x: .140000001, y: .269999981}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,9 +76,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b01254dd46a49e41bc6271d994e3141, type: 3}
+  m_Script: {fileID: 11500000, guid: 33b887fe11922b64ab64377cdd32ce14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Acceleration: {x: 0, y: 0}
   ExplosionEffect: {fileID: 100000, guid: 1b8747d30f57fbb43aac366e64ab1236, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
@@ -89,10 +89,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f711b73dc485e594e8bb6d7bdc09d5d6, type: 3}
+  m_Script: {fileID: 11500000, guid: e013f2f86ae9915428677488cad59a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 100000, guid: 1d41b76f2d3d84447ab884d7a4fdd102, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -114,7 +113,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: a548554f2425b174289d48f331728f82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77a3f18501754e04d8a9a0eb3894dc2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

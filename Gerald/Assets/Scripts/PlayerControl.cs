@@ -4,6 +4,7 @@ using System.Linq;
 
 public class PlayerControl : MonoBehaviour {
 
+    public GameObject ExplosionEffect;
 	Vector3 _targetPos;
 	float maxSpeed = 20;
 
@@ -33,7 +34,12 @@ public class PlayerControl : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		if (collider.GetComponents<MonoBehaviour>().Any(c => c is ICollidableEnemy))
-			Destroy(gameObject);
+        if (collider.GetComponents<MonoBehaviour>().Any(c => c is ICollidableEnemy))
+        {
+            var explosion = (GameObject)Instantiate(ExplosionEffect);
+            explosion.transform.position = transform.position;
+            explosion.rigidbody2D.AddForce(rigidbody2D.velocity * 10);
+            Destroy(gameObject);
+        }
 	}
 }

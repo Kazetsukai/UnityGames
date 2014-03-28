@@ -1,15 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DestroyParticleOnComplete.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MainScript.cs">
     <Files>
-      <File FileName="Assets\DestroyParticleOnComplete.cs" Line="10" Column="1" />
-      <File FileName="Assets\BasicEnemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\PlayerControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\DestroyParticleOnComplete.cs" Line="4" Column="29" />
+      <File FileName="Assets\Scripts\MainScript.cs" Line="20" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\KURO\Documents\GitHub\UnityGames\Gerald\Assets\Scripts\MainScript.cs" line="18" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

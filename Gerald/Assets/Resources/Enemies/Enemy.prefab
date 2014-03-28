@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b887fe11922b64ab64377cdd32ce14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Acceleration: {x: 0, y: 0}
+  Acceleration: {x: 0, y: -5}
   ExplosionEffect: {fileID: 100000, guid: 1b8747d30f57fbb43aac366e64ab1236, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:

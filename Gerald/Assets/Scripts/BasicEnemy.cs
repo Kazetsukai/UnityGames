@@ -6,6 +6,8 @@ public class BasicEnemy : MonoBehaviour, ICollidableEnemy, ITriggerEnter2D {
 	public Vector2 Acceleration;
 	public GameObject ExplosionEffect;
 
+    private const float MAX_SPEED = 20;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -13,7 +15,13 @@ public class BasicEnemy : MonoBehaviour, ICollidableEnemy, ITriggerEnter2D {
 	
 	// Update is called once per frame
 	void Update () {
-		rigidbody2D.AddForce(Acceleration);
+		if (rigidbody2D.velocity.magnitude < MAX_SPEED)
+            rigidbody2D.AddForce(Acceleration);
+        else if (rigidbody2D.velocity.magnitude > MAX_SPEED)
+        {
+            rigidbody2D.velocity.Normalize();
+            rigidbody2D.velocity *= (MAX_SPEED);
+        }
 	}
 	
 	public void OnTriggerEnter2D(Collider2D collider)
@@ -22,6 +30,7 @@ public class BasicEnemy : MonoBehaviour, ICollidableEnemy, ITriggerEnter2D {
 		{
 			var explosion = (GameObject)Instantiate(ExplosionEffect);
 			explosion.transform.position = transform.position;
+            explosion.rigidbody2D.AddForce(rigidbody2D.velocity * 10);
 			Destroy(collider.gameObject);
 			Destroy(gameObject);
 		}

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class ConstantShooting : MonoBehaviour {
 
-	float timePassed = 0;
-	float timeToShoot = 0.2f;
+	float reload = 0;
+	float timeToReload = 0.35f;
 
 	public GameObject Bullet;
 
@@ -15,12 +15,16 @@ public class ConstantShooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        reload -= Time.fixedDeltaTime;
+        if (reload < 0)
+            reload = 0;
+
 		if (Input.GetMouseButton(0))
 		{
-			timePassed += Time.fixedDeltaTime;
-			if (timePassed > timeToShoot)
+			if (reload <= 0)
 			{
-				timePassed -= timeToShoot;
+				reload = timeToReload;
 				var bullet1 = (GameObject)Instantiate(Bullet);
 				var bullet2 = (GameObject)Instantiate(Bullet);
 				
@@ -31,7 +35,5 @@ public class ConstantShooting : MonoBehaviour {
 				bullet2.rigidbody2D.AddForce(Vector2.up * 700);
 			}
 		}
-		else 
-			timePassed = timeToShoot;
 	}
 }
