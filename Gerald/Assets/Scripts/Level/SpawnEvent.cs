@@ -9,10 +9,3 @@ public class SpawnEvent
 	public string SpawnObject { get; set; }
 	public string Location { get; set; }
 }
-
-[XmlRoot("SpawnEvents")]
-public class SpawnEventCollection
-{
-	[XmlElement("SpawnEvent")]
-	public SpawnEvent[] SpawnEvents { get; set; }
-}

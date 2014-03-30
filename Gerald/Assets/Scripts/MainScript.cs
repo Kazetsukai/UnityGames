@@ -13,11 +13,17 @@ public class MainScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		var serializer = new XmlSerializer(typeof(SpawnEventCollection));
-        var spawnEvents = (SpawnEventCollection)(serializer.Deserialize(new MemoryStream(Resources.Load<TextAsset>("spawnEvents").bytes)));
-		_spawnEvents = spawnEvents.SpawnEvents.OrderBy(e => e.Time).ToList();
+        var level = LoadXML<Level>("level1");
+        var globalData = LoadXML<GlobalData>("globaldata");
 
+		_spawnEvents = level.SpawnEvents.OrderBy(e => e.Time).ToList();
 	}
+
+    private static T LoadXML<T>(string file)
+    {
+        var serializer = new XmlSerializer(typeof(T));
+        return (T)(serializer.Deserialize(new MemoryStream(Resources.Load<TextAsset>(file).bytes)));
+    }
 	
 	// Update is called once per frame
 	void Update () {
