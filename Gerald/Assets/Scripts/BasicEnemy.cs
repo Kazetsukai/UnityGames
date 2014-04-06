@@ -28,6 +28,7 @@ public class BasicEnemy : MonoBehaviour, ICollidableEnemy, ITriggerEnter2D {
 	{
 		if (collider.gameObject.tag.Contains("PlayerBullet"))
 		{
+            FindObjectOfType<ScoringBehaviour>().IncrementScore();
 			var explosion = (GameObject)Instantiate(ExplosionEffect);
 			explosion.transform.position = transform.position;
             explosion.rigidbody2D.AddForce(rigidbody2D.velocity * 10);

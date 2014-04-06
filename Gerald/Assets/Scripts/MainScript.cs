@@ -8,15 +8,14 @@ using System.Reflection;
 
 public class MainScript : MonoBehaviour {
 
-	IList<SpawnEvent> _spawnEvents;
+	List<SpawnEvent> _spawnEvents = new List<SpawnEvent>();
+    private Level _level;
 
 	// Use this for initialization
 	void Start () {
 
-        var level = LoadXML<Level>("level1");
+        _level = LoadXML<Level>("level1");
         var globalData = LoadXML<GlobalData>("globaldata");
-
-		_spawnEvents = level.SpawnEvents.OrderBy(e => e.Time).ToList();
 	}
 
     private static T LoadXML<T>(string file)
@@ -29,14 +28,31 @@ public class MainScript : MonoBehaviour {
 	void Update () {
 		if (_spawnEvents.Any())
 		{
-			var spawnEvent = _spawnEvents.First();
-			if (spawnEvent.Time < Time.timeSinceLevelLoad)
-			{
-				_spawnEvents.RemoveAt(0);
-				GameObject obj = Resources.Load<GameObject>("Enemies/"+spawnEvent.SpawnObject);
-				Instantiate (obj, ParseVector3(spawnEvent.Location), Quaternion.identity);
-			}
+            bool eventsDue = true;
+            while (eventsDue)
+            {
+                var spawnEvent = _spawnEvents.First();
+                if (spawnEvent.Time < Time.timeSinceLevelLoad)
+                {
+                    _spawnEvents.RemoveAt(0);
+                    GameObject obj = Resources.Load<GameObject>("Enemies/" + spawnEvent.SpawnObject);
+                    Instantiate(obj, ParseVector3(spawnEvent.Location), Quaternion.identity);
+                }
+                else
+                    eventsDue = false;
+            }
 		}
+        else
+        {
+            var time = Time.timeSinceLevelLoad;
+            _spawnEvents = _level.SpawnEvents.OrderBy(e => e.Time).Select(
+                e => new SpawnEvent() 
+                { 
+                    Time = e.Time + Time.timeSinceLevelLoad, 
+                    Location = e.Location, 
+                    SpawnObject = e.SpawnObject 
+                }).ToList();
+        }
 	}
 
     private Vector3 ParseVector3(string p)
