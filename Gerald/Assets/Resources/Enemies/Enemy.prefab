@@ -12,6 +12,7 @@ GameObject:
   - 60: {fileID: 6000000}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -80,6 +81,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Acceleration: {x: 0, y: -5}
   ExplosionEffect: {fileID: 100000, guid: 1b8747d30f57fbb43aac366e64ab1236, type: 2}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2734f49e5a5d9fb4c90f5627525281a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
