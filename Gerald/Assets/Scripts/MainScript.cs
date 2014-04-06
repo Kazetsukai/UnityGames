@@ -35,6 +35,7 @@ public class MainScript : MonoBehaviour {
                 if (spawnEvent.Time < Time.timeSinceLevelLoad)
                 {
                     _spawnEvents.RemoveAt(0);
+                    if (!_spawnEvents.Any()) eventsDue = false;
                     GameObject obj = Resources.Load<GameObject>("Enemies/" + spawnEvent.SpawnObject);
                     Instantiate(obj, ParseVector3(spawnEvent.Location), Quaternion.identity);
                 }
