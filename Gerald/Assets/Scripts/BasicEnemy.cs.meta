@@ -4,6 +4,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - ExplosionEffect: {fileID: 100000, guid: 1b8747d30f57fbb43aac366e64ab1236, type: 2}
+  - Energy: {fileID: 100000, guid: 8c2ef464d716e0843b4ff1deb94f44ad, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

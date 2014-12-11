@@ -41,5 +41,11 @@ public class PlayerControl : MonoBehaviour {
             explosion.rigidbody2D.AddForce(rigidbody2D.velocity * 10);
             Destroy(gameObject);
         }
+
+        var collectables = collider.GetComponents<MonoBehaviour>().OfType<ICollectable>();
+        foreach (var collectable in collectables)
+        {
+            collectable.Collect();
+        }
 	}
 }

@@ -5,6 +5,7 @@ public class BasicEnemy : MonoBehaviour, ICollidableEnemy, ITriggerEnter2D {
 
 	public Vector2 Acceleration;
 	public GameObject ExplosionEffect;
+    public GameObject Energy;
 
     private const float MAX_SPEED = 20;
 
@@ -32,6 +33,11 @@ public class BasicEnemy : MonoBehaviour, ICollidableEnemy, ITriggerEnter2D {
 			var explosion = (GameObject)Instantiate(ExplosionEffect);
 			explosion.transform.position = transform.position;
             explosion.rigidbody2D.AddForce(rigidbody2D.velocity * 10);
+
+            var energy = (GameObject)Instantiate(Energy);
+            energy.transform.position = transform.position;
+            energy.rigidbody2D.AddForce(Random.insideUnitCircle * 100);
+
 			Destroy(collider.gameObject);
 			Destroy(gameObject);
 		}
